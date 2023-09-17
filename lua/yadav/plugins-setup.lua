@@ -14,7 +14,7 @@ local packer_bootstrap = ensure_packer()
 vim.cmd([[
   augroup packer_user_config
     autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+    autocmd BufWritePost plugins-setup.lua source <afile> | PackerSync
   augroup end
 ]])
 
@@ -26,6 +26,9 @@ end
 return packer.startup(function(use)
   use("wbthomason/packer.nvim")
   use("bluz71/vim-nightfly-guicolors") --preferred colorscheme
+  -- tmux & split window config
+  use("christoomey/vim-tmux-navigator")
+
   if packer_bootstrap then
     require("packer").sync()
   end
