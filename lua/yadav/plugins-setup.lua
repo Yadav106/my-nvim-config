@@ -28,6 +28,7 @@ return packer.startup(function(use)
   use("bluz71/vim-nightfly-guicolors") --preferred colorscheme
   -- tmux & split window config
   use("christoomey/vim-tmux-navigator")
+  use("szw/vim-maximizer") -- maximizes and restores current window
 
   if packer_bootstrap then
     require("packer").sync()
