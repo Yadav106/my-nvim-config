@@ -30,6 +30,16 @@ return packer.startup(function(use)
   use("christoomey/vim-tmux-navigator")
   use("szw/vim-maximizer") -- maximizes and restores current window
 
+  -- lua functions that many plugins use
+  use("nvim-lua/plenary.nvim")
+
+  -- essential plugins
+  use("tpope/vim-surround")
+  use("vim-scripts/ReplaceWithRegister")
+
+  -- commenting with gc
+  use("numToStr/Comment.nvim")
+
   if packer_bootstrap then
     require("packer").sync()
   end
