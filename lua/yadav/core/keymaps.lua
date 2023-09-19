@@ -5,8 +5,6 @@ local keymap = vim.keymap -- for conciseness
 -- general keymaps
 keymap.set("i", ";'", "<ESC>")
 
-keymap.set("n", "<leader>ep", ":Ex<CR>")
-
 keymap.set("n", "<leader>nh", ":nohl<CR>")
 keymap.set("n", "x", '"_x')
 
@@ -27,3 +25,6 @@ keymap.set("n", "<leader>tp", ":tabp<CR>") -- go to previous tab
 
 -- vim-maximizer
 keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>")
+
+-- nvim-tree
+keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
