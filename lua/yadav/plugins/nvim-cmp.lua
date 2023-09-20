@@ -4,9 +4,14 @@ if  not cmp_status then
   return
 end
 
-luasnip_status, luasnip = pcall(require, "luasnip")
+local luasnip_status, luasnip = pcall(require, "luasnip")
 
 if not luasnip_status then
+  return
+end
+
+local lspkind_status, lspkind = pcall(require, "lspkind")
+if not lspkind_status then
   return
 end
 
@@ -18,7 +23,7 @@ vim.opt.completeopt = "menu,menuone,noselect"
 cmp.setup({
   snippet = {
     expand = function(args)
-      luasnip.lsp_expand(args_body)
+      luasnip.lsp_expand(args.body)
     end,
   },
   mapping = cmp.mapping.preset.insert({
@@ -31,8 +36,15 @@ cmp.setup({
     ["<CR>"] = cmp.mapping.confirm({ select = false }),
   }),
   sources = cmp.config.sources({
+    { name = "nvm_lsp" }, -- lsp
     { name = "luasnip" }, -- snippets
     { name = "buffer" }, -- text within current buffer
     { name = "path" }, -- file system paths
   }),
+  formatting = {
+    format = lspkind.cmp_format({
+      maxwidth = 50,
+      ellpisis_char = "...",
+    }),
+  },
 })
