@@ -83,6 +83,9 @@ return packer.startup(function(use)
 	use("windwp/nvim-autopairs")
 	use("windwp/nvim-ts-autotag")
 
+	-- git signs plugin
+	use("lewis6991/gitsigns.nvim")
+
 	-- configuring lsp servers
 	use("neovim/nvim-lspconfig")
 	use("hrsh7th/cmp-nvim-lsp")
